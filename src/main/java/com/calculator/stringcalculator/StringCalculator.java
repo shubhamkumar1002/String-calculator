@@ -2,6 +2,8 @@ package com.calculator.stringcalculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
     private int addCounter = 0;
@@ -12,8 +14,21 @@ public class StringCalculator {
             String delimiter = ",|\n";
             if (numberString.startsWith("//")) {
                 int newlineIndex = numberString.indexOf("\n");
-                delimiter = numberString.substring(2, newlineIndex);
+//                delimiter = numberString.substring(2, newlineIndex);
+                String delimiterPart = numberString.substring(2, newlineIndex);
                 numberString = numberString.substring(newlineIndex + 1);
+
+
+                if(delimiterPart.startsWith("[") && delimiterPart.endsWith("]")){
+                    List<String> delimiters = new ArrayList<>();
+                    Matcher m = Pattern.compile("\\[(.*?)]").matcher(delimiterPart);
+                    while(m.find())
+                        delimiters.add(Pattern.quote(m.group(1)));
+                    delimiter = String.join("|", delimiters);
+                } else {
+                    delimiter = Pattern.quote(delimiterPart);
+                    System.out.println(delimiterPart);
+                }
             }
             List<Integer> negativeNumberList = new ArrayList<>();
             String[] parts = numberString.split(delimiter);
