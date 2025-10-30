@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringCalculator {
-
+    private int addCounter = 0;
     public int add(String numberString) {
-
+            addCounter++;
             if (null == numberString || numberString.isEmpty()) return 0;
 
             String delimiter = ",|\n";
@@ -23,7 +23,7 @@ public class StringCalculator {
                 if(number<0){
                     negativeNumberList.add(number);
                 }
-                sum += number;
+                sum += number<=1000?number:0;
             }
 
             if(!negativeNumberList.isEmpty()){
@@ -33,4 +33,7 @@ public class StringCalculator {
 
     }
 
+    public int getAddCounter() {
+        return addCounter;
+    }
 }

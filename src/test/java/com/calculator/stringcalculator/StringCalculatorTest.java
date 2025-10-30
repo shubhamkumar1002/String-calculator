@@ -47,4 +47,19 @@ class StringCalculatorTest {
 		});
 		assertEquals("negatives not allowed [-2, -4]", e.getMessage());
 	}
+
+	@Test
+	void trackAddMethodInvokedCalls() {
+		StringCalculator sc = new StringCalculator();
+		sc.add("34, 66");
+		sc.add("24, 26");
+		sc.add("14, 16");
+		assertEquals(3, sc.getAddCounter());
+	}
+
+	@Test
+	void numberGreaterThanThousandIgnored() {
+		assertEquals(1, new StringCalculator().add("1,1001"));
+		assertEquals(1001, new StringCalculator().add("1,1000"));
+	}
 }
