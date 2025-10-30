@@ -3,6 +3,8 @@ package com.calculator.stringcalculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 class StringCalculatorTest {
@@ -27,4 +29,16 @@ class StringCalculatorTest {
 		assertEquals(9, new StringCalculator().add("1,1\n7"));
 	}
 
+	@Test
+	void allowCustomDelimiterDefinedInHeader(){
+		assertEquals(25, new StringCalculator().add("//;\n12;13"));
+	}
+	@Test
+	void allowCustomDelimiterDefinedInHeaderFailed(){
+		assertNotEquals(1, new StringCalculator().add("//;\n12;13"));
+	}
+	@Test
+	void allowCustomDelimiterDefinedInHeaderException(){
+		assertNotEquals(25, new StringCalculator().add("//;\n12,13"));
+	}
 }
