@@ -6,7 +6,7 @@ public class StringCalculator {
         if( null==numberString ||numberString.isEmpty()) {
             return 0;
         }else {
-            if(numberString.contains(",")){
+            if(numberString.contains(",") || numberString.contains("\n") ){
                 String[] parts = numberString.split("[,|\n]");
                 int sum = 0;
                 for(String part: parts){
