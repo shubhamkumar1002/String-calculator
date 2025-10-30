@@ -21,4 +21,10 @@ class StringCalculatorTest {
 		assertEquals(49, new StringCalculator().add("9,15,25"));
 	}
 
+	@Test
+	void allowsNewLineAsDelimiterAlongWithComma() {
+		assertEquals(15, new StringCalculator().add("2\n5,8"));
+		assertEquals(9, new StringCalculator().add("1,1\n7"));
+	}
+
 }
