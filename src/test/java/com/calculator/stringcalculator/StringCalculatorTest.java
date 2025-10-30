@@ -15,5 +15,10 @@ class StringCalculatorTest {
 	void returnsValueOnSingleValue() {
 		assertEquals(99, new StringCalculator().add("99"));
 	}
+	@Test
+	void returnsTotalOfNumbersSeperatedByComma() {
+		assertEquals(11, new StringCalculator().add("4,7"));
+		assertEquals(49, new StringCalculator().add("9,15,25"));
+	}
 
 }
