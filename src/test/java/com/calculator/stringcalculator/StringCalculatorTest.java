@@ -11,5 +11,9 @@ class StringCalculatorTest {
 	void returnsZeroOnEmptyString() {
 		assertEquals(0, new StringCalculator().add(""));
 	}
+	@Test
+	void returnsValueOnSingleValue() {
+		assertEquals(99, new StringCalculator().add("99"));
+	}
 
 }
