@@ -16,7 +16,7 @@ public class StringCalculator {
             int sum = 0;
             for (String part : parts) {
                 if(Integer.parseInt(part.trim())<0){
-                    throw new IllegalArgumentException("negative numbers not allowed "+part);
+                    throw new IllegalArgumentException("negatives  not allowed ");
                 }
                 sum += Integer.parseInt(part);
             }
