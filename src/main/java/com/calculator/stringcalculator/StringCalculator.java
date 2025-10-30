@@ -18,7 +18,6 @@ public class StringCalculator {
                 String delimiterPart = numberString.substring(2, newlineIndex);
                 numberString = numberString.substring(newlineIndex + 1);
 
-
                 if(delimiterPart.startsWith("[") && delimiterPart.endsWith("]")){
                     List<String> delimiters = new ArrayList<>();
                     Matcher m = Pattern.compile("\\[(.*?)]").matcher(delimiterPart);

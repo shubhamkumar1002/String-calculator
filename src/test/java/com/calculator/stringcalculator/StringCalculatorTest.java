@@ -67,4 +67,11 @@ class StringCalculatorTest {
 	void supportsDelimiterOfAnyNumberLength() {
 		assertEquals(6, new StringCalculator().add("//[***]\n1***2***3"));
 	}
+
+	@Test
+	void supportsMultipleDelimitersOfAnyNumberLength() {
+		assertEquals(10, new StringCalculator().add("//[**][$$][@@@]\n1**2$$3@@@4"));
+	}
+
+
 }
